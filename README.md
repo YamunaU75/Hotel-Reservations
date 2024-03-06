@@ -12,11 +12,9 @@ of cancellations when booking reservation is made, our goal is to find the best 
 
 ### Dataset and Data Exploration:
 
-For analysis, we are using a Hotel Reservation Dataset from Kaggle:
+For analysis, we are using a Hotel Reservation Dataset from Kaggle: https://www.kaggle.com/datasets/ahsan81/hotel-reservations-classification-dataset/data
 
-<a href = "https://www.kaggle.com/datasets/ahsan81/hotel-reservations-classification-dataset/data"> 
-
-The Hotel-reservation Dataset 2017-2018 taken from Portugal, and each record shows booking and arrival info for each customer, This dataset has no missing values, contains 36K rows and 19 columns.
+The Hotel-reservation Dataset 2017-2018 taken from Portugal, and each record shows booking and arrival info for each customer. This dataset has no missing values, contains 36K rows and 19 columns.
 
 Numeric Columns    : no_of_adults, no_of_children, no_of_weekend_nights, no_of_week_nights, lead_time, no_of_previous_cancellations, 
                      no_of_previous_bookings_not_canceled, avg_price_per_room.
@@ -46,19 +44,20 @@ scale the numeric columns, and One Hot Encoder for categorical columns.
 While checking the correlation factor with the function corr(), we came to know features `lead_time`, `no_of_special_requests`, `avg_price_per_room`, `length_of_stay`, `total_guests`, `market_segment_type`, `repeated_guest`, `booking_month` are highly correlated with out Target `booking_status`.
 
 <p align="center">
-    <img src = "https://" width = "  " height="  ">
+    <img src = "https://github.com/YamunaU75/Hotel-Reservations/blob/main/Data/Heatmap.png" width = "750" height="451">
 </p>
 
 ### Models Used:
 
 1. **Baseline Model Logistic Regression**:
-   Using `booking_status` as y variable, remaining columns as X, and with following parameters: fit_intercept = False, max_iter = 1000,    C = 1e5, solver = 'liblinear', random_state=100. We got **AUC score 0.87** as results.
+   Using `booking_status` as y variable, remaining columns as X, and with following parameters: fit_intercept = False, max_iter = 1000,
+   C = 1e5, solver = 'liblinear', random_state=100. We got **AUC score 0.87** as results.
 
-2. **Logistic Regression with High Correlated Features**:
-   Using `booking_status` as y varaiable, and high correlated features as X, and with same parameters as baseline model: fit_intercept = False,     max_iter = 1000, C = 1e5, solver = 'liblinear', random_state=100. We got **AUC score 0.85** as results.
+3. **Logistic Regression with High Correlated Features**:
+   Using `booking_status` as y varaiable, and high correlated features as X, and with same parameters as baseline model: fit_intercept = False,    max_iter = 1000, C = 1e5, solver = 'liblinear', random_state=100. We got **AUC score 0.85** as results.
 
 <p align="center">
-    <img src = "https://" width = "  " height="  ">
+    <img src = "https://github.com/YamunaU75/Hotel-Reservations/blob/main/Data/ROC_logistic.png" width = "750" height="550">
 </p>
 
 3. **Decision Tree**:
@@ -79,11 +78,18 @@ While checking the correlation factor with the function corr(), we came to know 
 
 8. **Random Forest Classifier, Optimal Hyperparameter**:
    Random Tree Classifier was improving our results, but model was overfitting with Baseline and High correlated feature models. Finally,
-   we want to check tuning hyperparameter and found parameters:Max Tree depth 13, Min Sample splits 0.01, Min Sample Leafs 0.01,
+   we want to check tuning hyperparameter and found parameters: Max Tree depth 13, Min Sample splits 0.01, Min Sample Leafs 0.01,
    Max Feature 19 and applying n_estimators = 100. We got better **AUC score 0.88** and better train and test scores.
 
 <p align="center">
-    <img src = "https://" width = "  " height="  ">
+    <img src = "https://github.com/YamunaU75/Hotel-Reservations/blob/main/Data/hyperparameter_random1.png" width = "750" height="267">
+</p>
+<p align="center">
+    <img src = "https://github.com/YamunaU75/Hotel-Reservations/blob/main/Data/hyperparameter_random2.png" width = "750" height="267">
+</p>
+
+<p align="center">
+    <img src = "https://github.com/YamunaU75/Hotel-Reservations/blob/main/Data/Screenshot%202024-03-06%20130429.png" width = "750" height="586">
 </p>
 
    **Conclusion:**
