@@ -73,31 +73,36 @@ False Negative - In this case, our model would classify a reservation as likely 
     <img src = "https://github.com/YamunaU75/Hotel-Reservations/blob/main/Data/ROC_logistic.png" width = "750" height="550">
 </p>
 
-3. **Decision Tree**:
+3. **Decision Tree with all features & Optimized Hyperparameter**:
    By Hyperparameter tuning to find best parameters, we found Max Tree depth 8, Min Sample splits 0.01, Min Sample Leafs 0.01 & Max Feature 12
-   for Decision Tree. Building Tree model with following parameters, we got **AUC score 0.78** which was far away from our Baseline Model.
+   for Decision Tree. Building Tree model with following parameters, we got **AUC score 0.80** which was far away from Logistic Baseline Model.
 
-5. **Oversampling Technique, Logistic Regression**:
+4. **Decision Tree with feature selection & Optimized Hyperparameter**:
+   By choosing tuned hyperparameters and high correlated features: Max Tree depth 8, Min Sample splits 0.01, Min Sample Leafs 0.01 & Max Feature 12.
+   Building Tree model with following parameters and feature selected, we got **AUC score 0.83** not better than Logistics results.
+
+
+6. **Oversampling Technique, Logistic Regression**:
    Target variable has slightly imbalanced classes, Class 0 as 67% and Class 1 as 33%. We want to check if Oversampling technique will
    leads us to best model, we still got **AUC score as 0.85** .
 
-6.  **Random Forest Classifier Baseline**:
+7.  **Random Forest Classifier Baseline**:
     Using `booking_status` as y variable, remaining columns as X, and with parameters:n_estimators=100, criterion = 'entropy', random_state=100.
     We got the best **AUC score 0.93**, but was seeing our Test results are bad when Train results are doing good.
 
-7. **Random Forest Classifier with High Correlated Features**:
-    Using `booking_status` as y variable, high correlated features as X, and with parameters:n_estimators=100, criterion = 'entropy',                random_state=100. We were getting the best **AUC score 0.92**, but again seeing our Test results are bad when Train results are
+8. **Random Forest Classifier with High Correlated Features**:
+    Using `booking_status` as y variable, high correlated features as X, and with parameters:n_estimators=100, criterion = 'entropy',                               random_state=100. We were getting the best **AUC score 0.92**, but again seeing our Test results are bad when Train results are
     doing good.
 
-8. **Random Forest Classifier, Optimal Hyperparameter**:
+9. **Random Forest Classifier, Optimal Hyperparameter**:
    Random Tree Classifier was improving our results, but model was overfitting with Baseline and High correlated feature models.
    We want to check tuning hyperparameter and found parameters: Max Tree depth 13, Min Sample splits 0.01, Min Sample Leafs 0.01,
    Max Feature 19 and applying n_estimators = 100. We got better **AUC score 0.8807** and better train and test scores.
 
-9. **Random Forest Classifier, Optimal Hyperparameter & High Correlated Features**:
+10. **Random Forest Classifier, Optimal Hyperparameter & High Correlated Features**:
    Random Tree Classifier was improving our results, but model was overfitting with Baseline and High correlated feature models. Finally,
    we want to check tuning hyperparameter with high correlated features and used parameters: Max Tree depth 13, Min Sample splits 0.01,
-   Min Sample Leafs 0.01, Max Feature 19 and applying n_estimators = 100. We got best**AUC score 0.8850** and best train and test scores.
+   Min Sample Leafs 0.01, Max Feature 19 and applying n_estimators = 100. We got best **AUC score 0.8850** and best train and test scores.
 
 ### Visualizing the results of Hyperparameter Tuning
 
