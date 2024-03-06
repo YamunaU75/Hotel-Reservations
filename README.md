@@ -119,14 +119,32 @@ Max Features - Again, we wanted to keep our max features value to a reasonable n
     <img src = "https://github.com/YamunaU75/Hotel-Reservations/blob/main/Data/hyperparameter_random2.png" width = "750" height="267">
 </p>
 
-<p align="center">
-    <img src = "https://github.com/YamunaU75/Hotel-Reservations/blob/main/Data/Screenshot%202024-03-06%20130429.png" width = "750" height="586">
-</p>
 
-   **Conclusion:**
-   
-   Our final model, Random Forest Classifier with feature selection and tuned hyperparameters, produced the best results without over-fitting      our train data. Our AUC of 0.8850 shows a solid confidence in our classification. We used this metric because we wanted to measure overall      performance to measure both false positives and false negatives, with a slight bias towards the positive class to be safe.
+## Conclusion:
+      
+   Our final model, Random Forest Classifier with feature selection and tuned hyperparameters, produced the best results without over-fitting
+   our train data. Our AUC of 0.8850 shows a solid confidence in our classification. We used this metric because we wanted to measure overall 
+   performance to measure both false positives and false negatives, with a slight bias towards the positive class to be safe.
 
-   
+ <p align="center">
+    <img src = "https://github.com/YamunaU75/Hotel-Reservations/blob/main/Data/ROC%20final.png" width = "750" height="586">
+</p>  
+
+## Next Steps:
+- Examine models for Repeated Guest
+- Gather more data
+- Contingency plan for False positives
+- Financial Impact Report
+- Survey for Guest Cancellations
+- Implement model in real time.
+
     
+## Repository Structure
 
+```
+├── Data
+├── .gitignore
+├── Flatiron Hotels.pdf
+├── README.md
+└── Hotel.ipynb
+```
