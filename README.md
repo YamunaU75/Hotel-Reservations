@@ -121,7 +121,13 @@ Max Features - Again, we wanted to keep our max features value to a reasonable n
 
 
 ## Conclusion:
-      
+
+   Logistic Regression model with all features had an AUC score of 0.8722, which was pretty good! It also didn't seem to be over-fit, 
+   with train and test scores being close to one another. The Logistic Regression model with feature selection scored slightly lower at 0.8553.
+
+   Decision Tree model with the tuned hyperparameters with AUC 0.8007, Decision Tree with tuned parameters and feature selection had 
+   AUC 0.83, which was an improvement, but far away from Baseline Logistic Model.
+         
    Our final model, Random Forest Classifier with feature selection and tuned hyperparameters, produced the best results without over-fitting
    our train data. Our AUC of 0.8850 shows a solid confidence in our classification. We used this metric because we wanted to measure overall 
    performance to measure both false positives and false negatives, with a slight bias towards the positive class to be safe.
